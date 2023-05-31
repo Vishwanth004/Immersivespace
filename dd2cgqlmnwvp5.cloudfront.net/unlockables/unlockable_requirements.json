@@ -1,0 +1,46 @@
+{
+  "DanceStreak": {
+    "id": "DanceStreak",
+    "type": "Streak",
+    "lockedItems": [
+      {
+        "ids": [
+          "JupiterTwist"
+        ],
+        "cost": 1
+      },
+      {
+        "ids": [
+          "Shuffle"
+        ],
+        "cost": 2
+      },
+      {
+        "ids": [
+          "Macarena"
+        ],
+        "cost": 3
+      },
+      {
+        "ids": [
+          "Silk"
+        ],
+        "cost": 4
+      },
+      {
+        "ids": [
+          "ShanShuffle"
+        ],
+        "cost": 5
+      },
+      {
+        "ids": [
+          "GangnamStyle",
+          "TheRunningMan",
+          "AllOut"
+        ],
+        "cost": 6
+      }
+    ]
+  }
+}
