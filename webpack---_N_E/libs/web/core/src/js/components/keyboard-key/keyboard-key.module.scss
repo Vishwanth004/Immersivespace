@@ -1,0 +1,37 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  border-radius: 4px;
+}
+
+.shadow {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: text.$real-head;
+  font-size: text.rem(18px);
+  font-weight: text.$real-head-demibold;
+}
+
+.bar {
+  height: 4px;
+  margin: 0 3px 3px;
+  border-radius: 4px;
+
+  &.light {
+    background: #d9d9d9;
+  }
+
+  &.dark {
+    background: colors.$darkest-gray;
+  }
+}

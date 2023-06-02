@@ -1,0 +1,35 @@
+@use "sass:color";
+@use "theme/src/colors";
+@use "theme/src/screens";
+@use "theme/src/text";
+@use "./variables.module";
+
+$pfpSize: 32px;
+$pfpPadding: 10px;
+$imageBottomPadding: 8px;
+
+.container {
+  position: relative;
+  &.spaceHovered {
+    &:not(&.disableScale) {
+      .imageContainer > img {
+        transform: scale(1.15) translateY(4%);
+      }
+    }
+  }
+}
+
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnailContainer {
+  border-radius: variables.$image-border-radius;
+  aspect-ratio: variables.$thumbnail-aspect-ratio-small;
+  transition: box-shadow 0.2s, scale 0.2s ease-in-out;
+  margin-bottom: $imageBottomPadding;
+
+  @media (min-width: screens.$xs) {
+    aspect-ratio: variables.$thumbnail-aspect-ratio-large;
+  }
+}

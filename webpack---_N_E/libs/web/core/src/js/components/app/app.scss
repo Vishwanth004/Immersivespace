@@ -1,0 +1,155 @@
+@use "theme/src/text";
+@use "theme/src/colors";
+@use "theme/src/screens";
+@use "theme/src/util";
+@use "web/core/src/js/components/navbar/variables.module.scss" as navbarVariables;
+@import "web/core/src/css/globals/type";
+@import "web/core/src/css/components";
+@import "web/core/src/css/animations";
+
+// These are here because Next.js doesn't allow for arbitrary global CSS imports.
+// See https://nextjs.org/docs/messages/css-global.
+// TODO(http://go/i/DEV-7830) - Migrate these to Sass modules
+@import "web/core/src/css/components/buttons";
+@import "web/core/src/js/components/flow-navigation/flow-navigation";
+@import "web/core/src/js/components/integrations/integration-row/integration-row";
+@import "web/core/src/js/components/menu/menu";
+@import "web/core/src/js/components/org-select/org-select";
+@import "web/core/src/js/components/room/media-settings/media-settings";
+@import "web/core/src/js/components/room/room-settings/room-settings";
+@import "web/core/src/js/components/room/transform/transform";
+@import "web/core/src/js/components/select-dropdown/select-dropdown";
+@import "web/core/src/js/components/terms-agreement/terms-agreement";
+@import "web/core/src/js/components/toast/toast";
+@import "web/core/src/js/routes/admin/admin";
+@import "web/core/src/js/routes/admin/user-table/user-table";
+@import "web/core/src/js/routes/integrations/integrations";
+@import "web/core/src/js/routes/onboarding/onboarding";
+@import "web/core/src/js/routes/rooms/room";
+
+body {
+  background: colors.$white;
+  &.ReactModal__Body--open:not(&.modalAllowScroll) {
+    overflow: hidden;
+    margin-right: var(--scrollbar-width);
+  }
+}
+
+:root {
+  --navbar-height: #{navbarVariables.$mobile-height};
+  @media screen and (min-width: screens.$sm) {
+    --navbar-height: #{navbarVariables.$height};
+  }
+}
+
+p,
+input {
+  padding: 0px;
+  margin: 0px;
+}
+
+input {
+  font-family: text.$real-text;
+  font-weight: text.$real-text-regular;
+}
+
+button {
+  font-family: inherit;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+  // in iOS 15+, they set the default color buttons to blue for some reason: https://developer.apple.com/forums/thread/690529
+  // So, manually set the default color to black for buttons globally
+  color: colors.$black;
+}
+
+button:focus {
+  outline: none;
+}
+
+select {
+  font: inherit;
+  margin: 0;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+label.select {
+  position: relative;
+}
+
+label.select:after {
+  content: "arrow_drop_down";
+  font: 32px "Material Icons";
+  opacity: 0.6;
+  right: 8px;
+  top: -8px;
+  position: absolute;
+  pointer-events: none;
+}
+
+.hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.5s var(--emo-out);
+}
+
+.hover:hover {
+  opacity: 1;
+}
+
+a {
+  color: #000;
+}
+
+svg {
+  user-select: none;
+}
+
+@mixin icon-font-size($size) {
+  height: 1em;
+  width: 1em;
+  font-size: $size;
+}
+
+i.small,
+svg.small {
+  font-size: 18px;
+  font-weight: text.$real-text-regular;
+}
+
+i.medium,
+svg.medium {
+  font-size: 32px;
+  font-weight: text.$real-text-regular;
+}
+
+i.large,
+svg.large {
+  font-size: 48px;
+  font-weight: text.$real-text-regular;
+}
+
+i.rotate-up,
+svg.rotate-up {
+  transform: rotate(-90deg);
+}
+
+i.rotate-down,
+svg.rotate-down {
+  transform: rotate(90deg);
+}
+
+.react-toggle--checked {
+  .react-toggle-track {
+    background-color: colors.$black;
+  }
+  &:hover:not(.react-toggle-disabled) {
+    .react-toggle-track {
+      background-color: colors.$black;
+    }
+  }
+}

@@ -1,0 +1,156 @@
+@use "theme/src/colors";
+@use "theme/src/layout";
+@use "theme/src/text";
+@use "theme/src/util";
+@use "web/core/src/js/components/spatial-unity-web-gl/variables.module.scss" as unityCanvasVariables;
+
+@use "./chat-input/variables.module.scss" as chatInputVariables;
+@use "web/core/src/js/components/circle-button/variables.module" as circleButtonVariables;
+@use "web/core/src/js/routes/rooms/variables.module.scss" as roomVariables;
+
+$gradient-top-height: 24px;
+$gradient-bottom-height: 8px;
+
+/**
+* To customize the look & feel of Stream chat, we use global CSS overrides to alter the default styles.
+* For documentation from Stream, see https://getstream.io/chat/docs/sdk/react/theming/themingv2/
+*/
+.streamChat {
+  :global {
+    // Main panel sizing
+    .str-chat {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      max-height: 100%;
+      pointer-events: none; // Allows clicks to reach the Unity canvas
+    }
+
+    .str-chat__container {
+      max-height: 100%;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      justify-items: flex-end;
+      pointer-events: none;
+      width: 100%;
+    }
+
+    // Masking + overflow for the list of messages
+    .str-chat__list {
+      // Using mask-image to "fade out" chat at the top and bottom of the container
+      // Derived from: https://pqina.nl/blog/fade-out-overflow-using-css-mask-image/
+      mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black $gradient-top-height,
+        black calc(100% - ($gradient-top-height / 2) - $gradient-bottom-height),
+        rgba(0, 0, 0, 0.2) calc(100% - $gradient-bottom-height),
+        rgba(0, 0, 0, 0.1) calc(100% - ($gradient-bottom-height / 2)),
+        transparent
+      );
+
+      flex: 1;
+
+      mask-size: 100% 100%;
+      mask-position: 0 0;
+      mask-repeat: no-repeat;
+
+      height: 100%;
+      width: fit-content;
+      overflow: visible auto;
+
+      @include util.hide-scrollbar;
+      margin-right: -1 * (circleButtonVariables.$size + roomVariables.$padding-horizontal + 16px);
+    }
+
+    // Make messages align right
+    .str-chat__ul {
+      display: grid;
+      grid-auto-flow: row;
+      justify-items: flex-end;
+      grid-row-gap: 8px;
+      overflow: hidden;
+
+      > :first-child {
+        margin-top: $gradient-top-height;
+      }
+
+      > :last-child {
+        // We add a bit of additional padding to completely hide the mask when the list is scrolled to the bottom
+        margin-bottom: $gradient-bottom-height + 12px;
+      }
+    }
+
+    // New message indicator container
+    .str-chat__list-notifications {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    // New message indicator
+    .str-chat__message-notification {
+      position: absolute;
+      bottom: 12px;
+
+      padding: 12px;
+      border-radius: 24px;
+
+      font-size: text.rem(12px);
+      text-transform: none;
+
+      color: colors.$black;
+      background-color: colors.$white;
+      border-radius: 4px;
+
+      transition: scale 0.3s var(--emo-out);
+      &:hover {
+        scale: 1.05;
+      }
+    }
+
+    // Hide message status (ex sending, delivered, etc),
+    // typing indicator, autocomplete dropdown, and text for when there are no messages
+    .str-chat__message-simple-status.str-chat__message-status,
+    .str-chat__typing-indicator__users,
+    .str-chat__empty-channel,
+    .notification-error {
+      display: none !important;
+    }
+  }
+}
+
+.transitionComponent {
+  width: fit-content;
+}
+
+.container {
+  pointer-events: none; // Allows clicks to reach the Unity canvas
+  justify-self: end;
+  z-index: unityCanvasVariables.$canvas-z-index + 1;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: visible;
+
+  width: 260px;
+}
+
+.displayAboveModals {
+  z-index: layout.$modal-z-index + 1;
+}
+
+.infoMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: circleButtonVariables.$size;
+  border-radius: 32px;
+  padding: 0 32px;
+  background-color: colors.$transparent-gray;
+  color: colors.$white;
+  font-size: text.rem(14px);
+}

@@ -1,0 +1,22 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+@use "theme/src/shadows";
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.profilePicContainer {
+  width: 64px;
+  height: 64px;
+  @extend %regular-shadow;
+}
+
+.avatarIconPlaceholder {
+  font-size: 1.5rem;
+  font-weight: text.$real-head-demibold;
+  text-align: center;
+}

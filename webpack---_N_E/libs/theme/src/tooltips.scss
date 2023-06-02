@@ -1,0 +1,126 @@
+@use "./colors";
+@use "./positioning";
+@use "./shadows";
+@use "./text";
+
+$roundedRectBorderRadii: 4px;
+
+%tooltip-host {
+  position: relative;
+  display: inline-block;
+  text-underline-offset: text.rem(1px);
+
+  .tooltip-text {
+    opacity: 0;
+    transition: transform 200ms var(--emo-out), opacity 200ms ease;
+
+    @extend %small-shadow;
+    -webkit-text-fill-color: initial;
+    background-color: colors.$white;
+    color: colors.$black;
+    text-align: center;
+    border-radius: 24px;
+    position: absolute;
+    z-index: positioning.$zindex-tooltip;
+    pointer-events: none;
+    margin: auto;
+    padding: 6px 10px;
+    left: 50%;
+
+    font-size: text.rem(13px);
+    text-transform: none;
+    letter-spacing: normal;
+    white-space: nowrap;
+    font-weight: text.$real-head-medium;
+
+    &::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+
+  .tooltip-text--top {
+    bottom: calc(100%);
+    transform: translateX(-50%) translateY(10%);
+
+    &::after {
+      top: calc(100% - 2px);
+      border-top: 8px solid colors.$white;
+    }
+  }
+
+  .tooltip-text--bottom {
+    top: calc(100%);
+    transform: translateX(-50%) translateY(calc(10% * -1));
+
+    &::after {
+      bottom: calc(100% - 2px);
+      border-bottom: 8px solid colors.$white;
+    }
+  }
+
+  &:hover .tooltip-text {
+    transition-delay: var(--tooltip-delay, 200ms);
+    transform: translateX(-50%) translateY(0px);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &.forceOpen {
+    .tooltip-text {
+      transition-delay: var(--tooltip-delay, 200ms);
+      transform: translateX(-50%) translateY(0px);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+  }
+  .tooltip-text--top--hover-red:hover {
+    background-color: colors.$red;
+
+    &::after {
+      border-top-color: colors.$red;
+    }
+  }
+
+  .tooltip-text--bottom--hover-red:hover {
+    background-color: colors.$red;
+
+    &::after {
+      border-bottom-color: colors.$red;
+    }
+  }
+
+  .tooltip-text--top--dark {
+    background-color: colors.$darkest-gray;
+    color: colors.$white;
+    &::after {
+      border-top: 8px solid colors.$darkest-gray;
+    }
+  }
+
+  .tooltip-text--clickable {
+    cursor: pointer;
+  }
+
+  // pointer device css to say only do this on hover capable devices
+  @media (hover: none) {
+    &:hover .tooltip-text {
+      transition-property: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.tooltip-host {
+  @extend %tooltip-host;
+}

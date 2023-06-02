@@ -1,0 +1,187 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+@use "theme/src/screens";
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  font-family: text.$real-head;
+  font-size: text.rem(36px);
+  font-weight: text.$real-text-regular;
+  margin-bottom: 4px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-row: 1/2;
+  height: 100%;
+  min-height: 0;
+  text-align: center;
+
+  &.numeric {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  & > * {
+    display: block;
+    margin: 12px 0;
+  }
+}
+
+.header {
+  display: flex;
+  font-size: 1em;
+  grid-row: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  font-size: 1em;
+  grid-row: 3;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.instructions {
+  color: rgba(colors.$black, 0.4);
+}
+
+.help {
+  position: absolute;
+  left: 32px;
+}
+
+.close {
+  position: absolute;
+  right: 32px;
+}
+
+.videoContainer {
+  width: 100%;
+  max-width: 50vh;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 22px;
+
+  video {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.downloadAppBtn {
+  all: unset;
+  font-weight: text.$real-head-demibold;
+  text-decoration: underline;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: screens.$sm) {
+  .pininput {
+    font-size: 4em;
+  }
+
+  .header {
+    padding-top: 16px;
+  }
+
+  .title {
+    padding: 0 40px;
+  }
+
+  .doneBtn {
+    margin-bottom: 0px;
+  }
+}
+
+.doneBtn {
+  background: colors.$black;
+  margin-bottom: 56px;
+  text-align: center;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  button {
+    color: colors.$white;
+  }
+}
+
+$letter-spacing: 10px;
+
+.pininput {
+  padding: 24px 32px;
+  border: solid colors.$gray 2px;
+  border-radius: 12px;
+  font-size: text.rem(96px);
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &.focused {
+    border-color: colors.$black;
+    color: colors.$black;
+
+    .hint {
+      visibility: hidden;
+    }
+  }
+}
+
+.hintHidden {
+  visibility: hidden;
+}
+
+.text {
+  position: absolute;
+  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.text,
+.underscores {
+  letter-spacing: $letter-spacing;
+}
+
+@media (max-width: screens.$sm) {
+  .pininput {
+    padding-top: 4px;
+  }
+
+  .text {
+    letter-spacing: 5px;
+    margin-left: 3px;
+  }
+}
+
+.hiddenInput {
+  height: 0;
+  opacity: 0;
+}
+
+.blink {
+  animation-name: blink;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  opacity: 1;
+}
+@keyframes blink {
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

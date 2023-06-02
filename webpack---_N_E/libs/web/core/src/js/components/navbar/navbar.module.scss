@@ -1,0 +1,208 @@
+@use "sass:math";
+@use "theme/src/colors";
+@use "theme/src/layout";
+@use "theme/src/screens";
+@use "theme/src/text";
+@use "./variables.module";
+
+.outerContainer {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: var(--navbar-height);
+
+  background-color: colors.$white;
+  transition: background-color 300ms;
+  z-index: variables.$base-z-index;
+
+  display: grid;
+  justify-items: center;
+}
+
+.border {
+  border-bottom: 1px solid colors.$lighter-gray;
+}
+
+.negativeMarginTop {
+  margin-top: calc(-1 * var(--navbar-height));
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0 0 auto 0;
+  margin-top: variables.$height;
+  height: 100vh;
+  z-index: variables.$backdrop-z-index;
+  background-color: colors.$black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms;
+
+  &.visible {
+    pointer-events: auto;
+    opacity: 0.5;
+  }
+
+  @media (min-width: screens.$sm) {
+    display: none;
+  }
+}
+
+.avatar {
+  width: variables.$avatar-size;
+  height: variables.$avatar-size;
+}
+
+.menu {
+  z-index: variables.$menu-z-index;
+}
+
+.transparentNav {
+  @media (min-width: screens.$sm) {
+    background-color: transparent;
+  }
+}
+
+.innerContainer {
+  @media (min-width: screens.$sm) {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+}
+
+.rightSection {
+  display: grid;
+  grid-auto-flow: column;
+  gap: variables.$top-right-gap;
+  z-index: variables.$base-z-index;
+  @media (min-width: screens.$sm) {
+  }
+  @media (min-width: screens.$md) {
+    gap: variables.$top-right-gap-bigger;
+  }
+}
+
+@media (max-width: calc(screens.$sm - 0.001em)) {
+  .innerContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: colors.$white;
+    z-index: variables.$base-z-index;
+  }
+
+  .menuOpen {
+    border-bottom: 1px solid colors.$lighter-gray;
+    .menu {
+      border-radius: 0 0 8px 8px;
+      max-height: calc(100vh - variables.$height);
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 0px; //unsure if this is the best way to hide the grey strip
+      }
+    }
+  }
+
+  .menuEnter,
+  .menuExitActive,
+  .menuExitDone {
+    transform: translateY(-100%);
+  }
+  .menuEnterActive,
+  .menuExitActive {
+    transition: transform 400ms;
+  }
+  .menuEnterActive,
+  .menuEnterDone {
+    transform: translateY(0);
+  }
+}
+
+.createSpaceModalContainer {
+  background: colors.$white;
+  width: 90vw;
+  height: 90vh;
+  max-width: layout.$max-container-width;
+  border-radius: 12px;
+}
+
+.floatingProfile {
+  display: none;
+  @media (min-width: screens.$sm) {
+    display: block;
+  }
+}
+
+.profileMenu {
+  min-width: 0 !important;
+  &.mobileProfile {
+    @media (min-width: screens.$sm) {
+      display: none;
+    }
+  }
+}
+
+// the following only applies when isModal = true (ie when width > breakpoint-width-small)
+.modal {
+  // Shift the modal up to be connected to the avatar by a triangle connector
+  composes: modalNoTranslate from "@spatialsys/web/core/css/components/modal.module.scss";
+  position: absolute;
+  top: variables.$height;
+  // positions the modal so that the triangle points to the center of the avatar circle
+  right: 0.5 * variables.$avatar-size + variables.$top-right-gap + variables.$cta-btn-width +
+    layout.$section-padding-x-mobile;
+
+  @media (min-width: screens.$sm) {
+    right: 0.5 * variables.$avatar-size + variables.$top-right-gap-bigger + variables.$cta-btn-width +
+      layout.$section-padding-x-small;
+  }
+
+  @media (min-width: screens.$md) {
+    right: 0.5 * variables.$avatar-size + variables.$top-right-gap-bigger + variables.$cta-btn-width +
+      layout.$section-padding-x-medium;
+  }
+  @media (min-width: screens.$lg) {
+    right: 0.5 * variables.$avatar-size + variables.$top-right-gap-bigger + variables.$cta-btn-width +
+      layout.$section-padding-x-large;
+  }
+
+  @media (min-width: layout.$max-container-width) {
+    right: calc(
+      0.5 * variables.$avatar-size + variables.$top-right-gap-bigger + variables.$cta-btn-width +
+        layout.$section-padding-x-large + calc((100% - layout.$max-container-width) / 2)
+    );
+  }
+
+  transform: translateX(variables.$modal-offset);
+  margin: 12px 0;
+  padding: 16px;
+  width: variables.$modal-width;
+
+  border-radius: 8px;
+  box-shadow: 4px 4px 20px 4px rgba(0, 0, 0, 0.25);
+  background-color: colors.$white;
+}
+
+.modalBody {
+  // Flex column to horizontally center the triangle connector
+  composes: body from "@spatialsys/web/core/css/components/modal.module.scss";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.24);
+}
+
+.desktopOnlyButton {
+  display: none;
+
+  @media (min-width: screens.$sm) {
+    display: flex;
+    align-items: center;
+  }
+}

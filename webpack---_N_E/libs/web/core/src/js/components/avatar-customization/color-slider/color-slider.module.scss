@@ -1,0 +1,79 @@
+@use "sass:math";
+@use "theme/src/buttons";
+@use "web/core/src/js/components/avatar-customization/variables.module.scss";
+
+@mixin track($height, $width, $bg-color, $border-radius, $box-shadow) {
+  cursor: pointer;
+  height: $height;
+  width: $width;
+  background: $bg-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+@mixin thumb($css-var-name, $height, $width, $border-radius, $box-shadow) {
+  // This CSS var is set through JS
+  $thumb-color: var(#{$css-var-name});
+  background-color: $thumb-color;
+  box-shadow: $box-shadow;
+  border: none;
+  border-radius: $border-radius;
+  height: $height;
+  width: $width;
+  cursor: pointer;
+  transition: 100ms transform var(--emo-out);
+  transform: scale(1);
+
+  &:hover {
+    transform: buttons.$btn-hover-scale;
+  }
+}
+
+@mixin slider(
+  $track-height,
+  $track-width,
+  $track-bg-color,
+  $track-border-radius,
+  $track-box-shadow,
+  $thumb-height,
+  $thumb-width,
+  $thumb-border-radius,
+  $thumb-box-shadow,
+  $css-var-name
+) {
+  -webkit-appearance: none;
+  background: transparent;
+  margin: math.div($thumb-height, 2) 0;
+  width: $track-width;
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  // NOTE: do not comma-separate these browser-specific selectors. Browsers will drop the entire selector if it doesn’t understand a part of it.
+  // See https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+
+  // Slider track styles
+  &::-webkit-slider-runnable-track {
+    @include track($track-height, $track-width, $track-bg-color, $track-border-radius, $track-box-shadow);
+  }
+  &::-moz-range-track {
+    @include track($track-height, $track-width, $track-bg-color, $track-border-radius, $track-box-shadow);
+    height: math.div($track-height, 2);
+  }
+
+  // Slider thumb styles
+  &::-webkit-slider-thumb {
+    @include thumb($css-var-name, $thumb-height, $thumb-width, $thumb-border-radius, $thumb-box-shadow);
+    -webkit-appearance: none;
+    // On Webkit only, need to add negative margin to center the thumb
+    margin-top: (math.div(($track-height), 2) - math.div($thumb-height, 2));
+  }
+  &::-moz-range-thumb {
+    @include thumb($css-var-name, $thumb-height, $thumb-width, $thumb-border-radius, $thumb-box-shadow);
+  }
+}

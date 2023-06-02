@@ -1,0 +1,47 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+
+.userInfoWrapper {
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.participantNameLink {
+  text-decoration: none;
+  min-width: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.profileCardPopupPivot {
+  z-index: 1;
+  position: absolute;
+  width: 0;
+  height: 0;
+  cursor: auto;
+}
+
+.avatarContainer {
+  position: relative;
+}
+
+.avatarOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: colors.$black;
+  opacity: 0;
+  z-index: 1;
+  border-radius: 50%;
+
+  transition: opacity 100ms ease;
+
+  &:hover {
+    opacity: 0.2;
+  }
+}

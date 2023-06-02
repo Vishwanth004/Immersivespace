@@ -1,0 +1,17 @@
+@use "theme/src/colors";
+
+.deleteRoomButton {
+  color: colors.$red;
+  // https://bugs.webkit.org/show_bug.cgi?id=158782
+  -webkit-text-fill-color: colors.$red !important;
+
+  &:disabled {
+    color: colors.$gray;
+    // https://bugs.webkit.org/show_bug.cgi?id=158782
+    -webkit-text-fill-color: colors.$gray !important;
+  }
+}
+
+.confirmButton {
+  color: colors.$red;
+}

@@ -1,0 +1,28 @@
+.onboarding {
+  width: 100%;
+  height: 100%;
+}
+
+.onboarding__error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.onboarding__error-message {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: lighten(red, 20%);
+  font-family: monospace;
+  background-color: white;
+}
+
+.onboarding .flownav {
+  padding: 40px;
+  max-width: 100%;
+}

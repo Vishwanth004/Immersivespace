@@ -1,0 +1,53 @@
+var _path, _path2, _path3, _path4, _path5;
+
+var _excluded = ["title", "titleId"];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+import * as React from "react";
+import { forwardRef } from "react";
+
+var SvgReactions = function SvgReactions(_ref, ref) {
+  var title = _ref.title,
+      titleId = _ref.titleId,
+      props = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    ref: ref,
+    "aria-labelledby": titleId
+  }, props), title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, _path || (_path = /*#__PURE__*/React.createElement("path", {
+    d: "M12.9531 5.98438C12.4219 5.98438 11.9531 5.78125 11.5469 5.375C11.1406 4.96875 10.9375 4.5 10.9375 3.96875C10.9375 3.4375 11.1406 2.98438 11.5469 2.60938C11.9531 2.20312 12.4219 2 12.9531 2C13.4844 2 13.9531 2.20312 14.3594 2.60938C14.7656 2.98438 14.9688 3.4375 14.9688 3.96875C14.9688 4.5 14.7656 4.96875 14.3594 5.375C13.9531 5.78125 13.4844 5.98438 12.9531 5.98438Z",
+    fill: "currentColor"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    d: "M7.125 6.21875C6.4375 5.125 6.0625 3.84375 6 2.375V2H7.96875V2.46875C7.96875 3.9375 8.48438 5.09375 9.51562 5.9375C10.4219 6.625 10.5781 6.96875 11.9844 6.96875C13.8281 6.96875 15.4531 7.54688 16.8594 8.70312C18.2656 9.92188 18.9688 11.5156 18.9688 13.4844V14H17V13.4844C17 12.1719 16.5312 11.1406 15.5938 10.3906C15.4688 10.2656 15.2656 10.1562 14.9844 10.0625V14.9844L9.98438 15.9688V8.375C8.76562 8 7.8125 7.28125 7.125 6.21875Z",
+    fill: "currentColor"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    d: "M10 20L9.29817 17.8945C9.13074 17.3922 9.38386 16.8465 9.87547 16.6498L14 15L17 22",
+    stroke: "currentColor",
+    strokeWidth: 2.2,
+    strokeLinecap: "square"
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    d: "M20 7L20.9375 4.9375L23 4L20.9375 3.0625L20 1L19.0625 3.0625L17 4L19.0625 4.9375L20 7Z",
+    fill: "currentColor"
+  })), _path5 || (_path5 = /*#__PURE__*/React.createElement("path", {
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M4.14696 6.1543L5.14958 7.8909C3.85044 8.79392 3 10.2973 3 11.9994C3 14.0498 4.23421 15.8119 6.00025 16.5834L6.0003 18.7096C3.10866 17.8491 1 15.1705 1 11.9994C1 9.55696 2.25088 7.4067 4.14696 6.1543Z",
+    fill: "currentColor"
+  })));
+};
+
+var ForwardRef = /*#__PURE__*/forwardRef(SvgReactions);
+export { ForwardRef as ReactComponent };
+export default "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjk1MzEgNS45ODQzOEMxMi40MjE5IDUuOTg0MzggMTEuOTUzMSA1Ljc4MTI1IDExLjU0NjkgNS4zNzVDMTEuMTQwNiA0Ljk2ODc1IDEwLjkzNzUgNC41IDEwLjkzNzUgMy45Njg3NUMxMC45Mzc1IDMuNDM3NSAxMS4xNDA2IDIuOTg0MzggMTEuNTQ2OSAyLjYwOTM4QzExLjk1MzEgMi4yMDMxMiAxMi40MjE5IDIgMTIuOTUzMSAyQzEzLjQ4NDQgMiAxMy45NTMxIDIuMjAzMTIgMTQuMzU5NCAyLjYwOTM4QzE0Ljc2NTYgMi45ODQzOCAxNC45Njg4IDMuNDM3NSAxNC45Njg4IDMuOTY4NzVDMTQuOTY4OCA0LjUgMTQuNzY1NiA0Ljk2ODc1IDE0LjM1OTQgNS4zNzVDMTMuOTUzMSA1Ljc4MTI1IDEzLjQ4NDQgNS45ODQzOCAxMi45NTMxIDUuOTg0MzhaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KPHBhdGggZD0iTTcuMTI1IDYuMjE4NzVDNi40Mzc1IDUuMTI1IDYuMDYyNSAzLjg0Mzc1IDYgMi4zNzVWMkg3Ljk2ODc1VjIuNDY4NzVDNy45Njg3NSAzLjkzNzUgOC40ODQzOCA1LjA5Mzc1IDkuNTE1NjIgNS45Mzc1QzEwLjQyMTkgNi42MjUgMTAuNTc4MSA2Ljk2ODc1IDExLjk4NDQgNi45Njg3NUMxMy44MjgxIDYuOTY4NzUgMTUuNDUzMSA3LjU0Njg4IDE2Ljg1OTQgOC43MDMxMkMxOC4yNjU2IDkuOTIxODggMTguOTY4OCAxMS41MTU2IDE4Ljk2ODggMTMuNDg0NFYxNEgxN1YxMy40ODQ0QzE3IDEyLjE3MTkgMTYuNTMxMiAxMS4xNDA2IDE1LjU5MzggMTAuMzkwNkMxNS40Njg4IDEwLjI2NTYgMTUuMjY1NiAxMC4xNTYyIDE0Ljk4NDQgMTAuMDYyNVYxNC45ODQ0TDkuOTg0MzggMTUuOTY4OFY4LjM3NUM4Ljc2NTYyIDggNy44MTI1IDcuMjgxMjUgNy4xMjUgNi4yMTg3NVoiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8cGF0aCBkPSJNMTAgMjBMOS4yOTgxNyAxNy44OTQ1QzkuMTMwNzQgMTcuMzkyMiA5LjM4Mzg2IDE2Ljg0NjUgOS44NzU0NyAxNi42NDk4TDE0IDE1TDE3IDIyIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiLz4KPHBhdGggZD0iTTIwIDdMMjAuOTM3NSA0LjkzNzVMMjMgNEwyMC45Mzc1IDMuMDYyNUwyMCAxTDE5LjA2MjUgMy4wNjI1TDE3IDRMMTkuMDYyNSA0LjkzNzVMMjAgN1oiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuMTQ2OTYgNi4xNTQzTDUuMTQ5NTggNy44OTA5QzMuODUwNDQgOC43OTM5MiAzIDEwLjI5NzMgMyAxMS45OTk0QzMgMTQuMDQ5OCA0LjIzNDIxIDE1LjgxMTkgNi4wMDAyNSAxNi41ODM0TDYuMDAwMyAxOC43MDk2QzMuMTA4NjYgMTcuODQ5MSAxIDE1LjE3MDUgMSAxMS45OTk0QzEgOS41NTY5NiAyLjI1MDg4IDcuNDA2NyA0LjE0Njk2IDYuMTU0M1oiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8L3N2Zz4K";

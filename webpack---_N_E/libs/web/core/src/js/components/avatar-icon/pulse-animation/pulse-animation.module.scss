@@ -1,0 +1,11 @@
+.pulse {
+  overflow: hidden;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+
+  // pulse
+  border: 2px solid;
+  transform: scale(1);
+}

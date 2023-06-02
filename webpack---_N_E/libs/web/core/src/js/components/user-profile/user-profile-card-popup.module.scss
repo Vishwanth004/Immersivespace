@@ -1,0 +1,26 @@
+@use "theme/src/colors";
+
+.profileCardPopupContainer {
+  transform: translate(0, -100%);
+  transform-origin: top left;
+  background: colors.$white;
+  filter: drop-shadow(0px 16px 32px colors.$black--shadow);
+  border-radius: 16px;
+  z-index: 1;
+  width: 350px;
+  padding: 16px;
+
+  scale: 0;
+  opacity: 0;
+
+  transition: scale 150ms ease, opacity 150ms ease; // default transition time, overriden with inline styles
+}
+
+.fullSize {
+  scale: 1;
+  opacity: 1;
+}
+
+.openDownwards {
+  transform: translate(0, 0);
+}

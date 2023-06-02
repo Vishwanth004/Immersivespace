@@ -1,0 +1,24 @@
+@import "../media-settings/media-settings.scss";
+
+.roomsettings__toggle {
+  height: 44px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.roomsettings {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.roomsettings__option-row {
+  display: grid;
+  grid-auto-flow: column;
+  text-align: left;
+  align-items: center;
+  grid-template-columns: auto max-content;
+  font-size: 16px;
+}

@@ -1,0 +1,128 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+@use "web/core/src/css/components/inputs";
+
+.flownav__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flownav__label-text {
+  margin-top: 64px;
+  margin-bottom: 64px;
+  display: relative;
+}
+
+.flownav__input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flownav__input-inputtext {
+  margin-top: 64px;
+  margin-bottom: 64px;
+  display: relative;
+}
+
+.flownav__input-error {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  color: colors.$red;
+}
+
+$flownav__max-width: 500px;
+
+.flownav {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: $flownav__max-width;
+  padding: 16px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .inputtext__input {
+    width: 90vw;
+  }
+}
+
+.flownav__top {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: auto;
+  width: 100%;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.flownav__arrow-previous {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: start;
+
+  .arrowbutton {
+    color: black;
+  }
+
+  button {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.flownav__account-center {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: center;
+
+  .menu__content {
+    margin-top: 6px;
+  }
+
+  svg {
+    fill: black;
+    height: 35px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.flownav__account-switcher {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.flownav__account-picture {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.flownav__account-name {
+  font-family: text.$real-text;
+
+  margin-left: 12px;
+  margin-right: 4px;
+  font-size: large;
+}
+
+.flownav__content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.flownav__subtitle {
+  all: unset;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 8px;
+}

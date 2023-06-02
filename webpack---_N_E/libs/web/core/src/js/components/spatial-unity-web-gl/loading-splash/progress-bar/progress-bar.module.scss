@@ -1,0 +1,35 @@
+@use "theme/src/colors";
+
+.container {
+  --progress: 0;
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(colors.$white, 0.2);
+  animation: backAndForth 5s infinite;
+
+  .progress {
+    position: absolute;
+    inset: 0;
+    background-color: colors.$white;
+
+    // Animate scale instead of width.
+    // Animating width would cause lag because the browser would have to recalculate layout on every frame.
+    // See https://stackoverflow.com/a/28799748
+    transform: scaleX(var(--progress));
+    transform-origin: left;
+    transition: transform 500ms;
+  }
+
+  @keyframes backAndForth {
+    0% {
+      background-color: rgba(colors.$white, 0.4);
+    }
+    50% {
+      background-color: rgba(colors.$white, 0.2);
+    }
+    100% {
+      background-color: rgba(colors.$white, 0.4);
+    }
+  }
+}

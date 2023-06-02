@@ -1,0 +1,64 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+
+.mediasettings {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 10px;
+  font-size: 16px;
+  min-width: 350px;
+  width: max-content;
+}
+
+.mediasettings__option-row {
+  display: grid;
+  grid-auto-flow: column;
+  text-align: left;
+  align-items: center;
+  grid-template-columns: 200px auto;
+  font-size: 16px;
+}
+
+.mediasettings__option-row_label {
+  color: colors.$dark-gray;
+}
+
+.mediasettings__select-dropdown {
+  .mediasettings__select-dropdown__dropdown {
+    max-height: 30vh;
+    overflow: auto;
+  }
+
+  button.selectdropdown__title,
+  button.selectdropdown__dropdown_item_button {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    text-transform: none;
+    letter-spacing: normal;
+
+    &:hover {
+      background-color: colors.$lighter-gray;
+    }
+  }
+
+  &.mediasettings__select-dropdown--static {
+    button.selectdropdown__title,
+    button.selectdropdown__dropdown_item_button {
+      cursor: default;
+
+      &:hover {
+        background-color: colors.$white;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.mediasettings__select-dropdown--static {
+  button:hover {
+    background-color: colors.$white;
+  }
+}

@@ -1,0 +1,68 @@
+@use "theme/src/screens";
+@use "theme/src/text";
+
+.container {
+  margin-top: 12px;
+  padding-right: 8px;
+}
+
+.grid {
+  display: grid;
+  row-gap: 16px;
+  min-height: 38px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: [avatar] 32px [name_email] auto [remove_icon] 32px;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.avatarIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+  &.noAvatar {
+    border: 1px dashed;
+    padding: 2px;
+  }
+
+  .avatarIconPlaceholder {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.nameAndEmail {
+  font-size: text.rem(14px);
+  padding-bottom: 3px;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  @media only screen and (max-width: screens.$mobile) {
+    font-size: text.rem(16px);
+  }
+
+  .nameAndEmailOnHover {
+    display: none;
+    padding-left: 5px;
+    font-size: text.rem(14px);
+  }
+}
+
+.nameAndEmail:hover {
+  .nameAndEmailOnHover {
+    display: inline-block;
+  }
+}
+
+.removeUser {
+  justify-self: end;
+}

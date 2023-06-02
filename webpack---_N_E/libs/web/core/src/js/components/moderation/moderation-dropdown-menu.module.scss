@@ -1,0 +1,15 @@
+@use "theme/src/buttons";
+
+.toggleButton {
+  @include buttons.btn-scale($scale-amount-hover: scale(1.1), $transition-time: 250ms);
+}
+
+.content {
+  min-width: unset;
+}
+
+.innerContents {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

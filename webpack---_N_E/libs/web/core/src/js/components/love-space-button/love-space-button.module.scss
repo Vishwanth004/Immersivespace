@@ -1,0 +1,30 @@
+@use "theme/src/colors";
+@use "theme/src/screens";
+@use "theme/src/text";
+
+.container {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  font-family: text.$real-text !important;
+  font-size: text.rem(14px);
+  font-weight: text.$real-text-regular;
+  color: colors.$white;
+  pointer-events: all;
+}
+
+svg.icon {
+  width: 14px;
+  transition: opacity 125ms;
+
+  @media (min-width: screens.$xs) {
+    width: 16px;
+  }
+
+  &.redIcon {
+    color: colors.$red;
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}

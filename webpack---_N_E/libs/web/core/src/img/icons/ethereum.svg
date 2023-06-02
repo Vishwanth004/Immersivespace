@@ -1,0 +1,52 @@
+var _path, _path2, _path3, _path4, _path5, _path6;
+
+var _excluded = ["title", "titleId"];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+import * as React from "react";
+import { forwardRef } from "react";
+
+var SvgEthereum = function SvgEthereum(_ref, ref) {
+  var title = _ref.title,
+      titleId = _ref.titleId,
+      props = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    width: 33,
+    height: 53,
+    viewBox: "0 0 33 53",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    ref: ref,
+    "aria-labelledby": titleId
+  }, props), title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, _path || (_path = /*#__PURE__*/React.createElement("path", {
+    d: "M16.3576 0.666687L16.0095 1.85009V36.1896L16.3576 36.5371L32.2976 27.115L16.3576 0.666687Z",
+    fill: "#343434"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    d: "M16.3578 0.666687L0.417816 27.115L16.3578 36.5372V19.8699V0.666687Z",
+    fill: "#8C8C8C"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    d: "M16.3575 39.5552L16.1613 39.7944V52.0268L16.3575 52.6L32.307 30.1378L16.3575 39.5552Z",
+    fill: "#3C3C3B"
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    d: "M16.3578 52.5998V39.5551L0.417816 30.1377L16.3578 52.5998Z",
+    fill: "#8C8C8C"
+  })), _path5 || (_path5 = /*#__PURE__*/React.createElement("path", {
+    d: "M16.3575 36.537L32.2973 27.1151L16.3575 19.8699V36.537Z",
+    fill: "#141414"
+  })), _path6 || (_path6 = /*#__PURE__*/React.createElement("path", {
+    d: "M0.417816 27.1151L16.3576 36.537V19.8699L0.417816 27.1151Z",
+    fill: "#393939"
+  })));
+};
+
+var ForwardRef = /*#__PURE__*/forwardRef(SvgEthereum);
+export { ForwardRef as ReactComponent };
+export default "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzMiIGhlaWdodD0iNTMiIHZpZXdCb3g9IjAgMCAzMyA1MyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE2LjM1NzYgMC42NjY2ODdMMTYuMDA5NSAxLjg1MDA5VjM2LjE4OTZMMTYuMzU3NiAzNi41MzcxTDMyLjI5NzYgMjcuMTE1TDE2LjM1NzYgMC42NjY2ODdaIiBmaWxsPSIjMzQzNDM0Ii8+CjxwYXRoIGQ9Ik0xNi4zNTc4IDAuNjY2Njg3TDAuNDE3ODE2IDI3LjExNUwxNi4zNTc4IDM2LjUzNzJWMTkuODY5OVYwLjY2NjY4N1oiIGZpbGw9IiM4QzhDOEMiLz4KPHBhdGggZD0iTTE2LjM1NzUgMzkuNTU1MkwxNi4xNjEzIDM5Ljc5NDRWNTIuMDI2OEwxNi4zNTc1IDUyLjZMMzIuMzA3IDMwLjEzNzhMMTYuMzU3NSAzOS41NTUyWiIgZmlsbD0iIzNDM0MzQiIvPgo8cGF0aCBkPSJNMTYuMzU3OCA1Mi41OTk4VjM5LjU1NTFMMC40MTc4MTYgMzAuMTM3N0wxNi4zNTc4IDUyLjU5OThaIiBmaWxsPSIjOEM4QzhDIi8+CjxwYXRoIGQ9Ik0xNi4zNTc1IDM2LjUzN0wzMi4yOTczIDI3LjExNTFMMTYuMzU3NSAxOS44Njk5VjM2LjUzN1oiIGZpbGw9IiMxNDE0MTQiLz4KPHBhdGggZD0iTTAuNDE3ODE2IDI3LjExNTFMMTYuMzU3NiAzNi41MzdWMTkuODY5OUwwLjQxNzgxNiAyNy4xMTUxWiIgZmlsbD0iIzM5MzkzOSIvPgo8L3N2Zz4K";

@@ -1,0 +1,211 @@
+@use "theme/src/colors";
+@use "theme/src/screens";
+@use "theme/src/shadows";
+@use "theme/src/text";
+
+$padding-x: 12px;
+
+.container {
+  display: grid;
+  grid-auto-flow: row;
+  width: 100%;
+  gap: 24px;
+}
+
+.boxWithOutline {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: 8px 0;
+}
+
+.shareLinkContainer {
+  display: grid;
+  align-items: center;
+  grid-template-rows: 48px auto 48px;
+  gap: 4px;
+}
+
+.copyLinkContainer {
+  padding: 0 $padding-x;
+}
+
+.shareIconContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.shareSettingsContainer {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 32px 1fr 132px;
+  padding: 0 $padding-x;
+}
+
+// shared styles for both dropdowns
+.shareSettingDropdown,
+.restrictEditDropdown {
+  button {
+    font-weight: text.$real-head-demibold;
+    text-transform: none;
+    font-size: text.rem(16px);
+    letter-spacing: normal;
+    width: 100%;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.canOpenDropdown {
+    button:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+
+  .dropdownItemButton {
+    padding: 8px 0;
+    font-size: text.rem(16px);
+  }
+}
+
+.linkSettingsDropdownTitle {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shareSettingDescription {
+  color: colors.$gray;
+  font-size: text.rem(14px);
+}
+
+.shareSettingDropdown {
+  flex-grow: 1;
+  line-height: 1.1;
+  max-width: 280px;
+
+  button {
+    text-align: left;
+  }
+
+  li > button {
+    padding: 8px 0;
+    letter-spacing: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.selectdropdown__dropdown_item--selected {
+      opacity: 1;
+    }
+  }
+}
+
+.restrictEditDropdown {
+  .smallMargin {
+    margin: 0 16px;
+  }
+}
+
+.dropdownOption {
+  display: flex;
+}
+
+.checkIcon {
+  font-size: text.rem(20px);
+  color: colors.$blue-light;
+  margin-left: auto;
+}
+
+.rowContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px $padding-x;
+  height: 58px;
+}
+
+.labelContainer {
+  flex-direction: column;
+  display: flex;
+  font-weight: text.$real-head-demibold;
+}
+
+.labelHeading {
+  font-size: text.rem(14px);
+}
+.labelSubTitle {
+  color: colors.$transparent-gray2;
+  font-size: text.rem(12px);
+}
+
+.overflowGroups {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px 18px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.overflowGroupsDescription {
+  padding-right: 20px;
+  font-size: text.rem(11px);
+  opacity: 0.7;
+}
+
+.instancingIcon {
+  width: 34px;
+  margin: 0 $padding-x 0 2px;
+}
+
+.inviteByEmailContainer {
+  padding: 0 $padding-x;
+  display: grid;
+  align-items: center;
+  text-align: left;
+  grid-template-columns: 32px 1fr auto;
+  height: 48px;
+  width: 100%;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.hostToolsTitle {
+  display: flex;
+  align-items: center;
+}
+
+.proButton {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto 0 auto;
+  text-transform: inherit;
+  letter-spacing: normal;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.proLabel {
+  border: 2px solid colors.$blue-light;
+  border-radius: 500px;
+  margin-right: 8px;
+  padding: 3px 10px;
+  font-size: text.rem(14px);
+  font-weight: text.$real-head-demibold;
+  color: colors.$blue-light;
+
+  &:link {
+    color: colors.$blue-light;
+  }
+}
+
+.viewProLabel {
+  margin: 2px 0 4px 0;
+  font-size: text.rem(14px);
+}

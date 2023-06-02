@@ -1,0 +1,61 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+@use "./variables.module.scss";
+
+$icon-size: 40px;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0; // we set an explicit z-index to create a new [stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context).
+  height: variables.$height;
+  padding: 4px 6px;
+  transition: transform 0.2s var(--emo-out);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.emptyContainer {
+  height: variables.$height;
+  width: variables.$height;
+  background: colors.$white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 10px 27px rgba(0, 0, 0, 0.2);
+  padding: 4px;
+}
+
+.videoAvatarIcon {
+  width: $icon-size;
+  height: $icon-size;
+  border-radius: 50%;
+  background: colors.$white;
+
+  // Overlap each icon
+  &:not(:first-child) {
+    margin-left: -12px;
+  }
+}
+
+.videoAvatarIconPlaceholder {
+  font-size: 1rem;
+}
+
+.overflowBadge {
+  position: absolute;
+  bottom: -2px;
+  right: 0px;
+  background: colors.$black;
+  color: colors.$white;
+  border-radius: 64px;
+  padding: 0 3px 1px;
+  font-size: 0.625rem;
+  letter-spacing: normal;
+  font-weight: text.$real-head-demibold;
+}

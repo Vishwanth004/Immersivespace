@@ -1,0 +1,21 @@
+@use "theme/src/colors";
+
+.micIcon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.micIconError {
+  transform: translate(-9px, -9px);
+  width: 22px;
+  height: 22px;
+}
+
+.micIconFill {
+  color: colors.$blue-light;
+}

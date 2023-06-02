@@ -1,0 +1,84 @@
+@use "theme/src/colors";
+@use "theme/src/shadows";
+@use "theme/src/text";
+
+.container {
+  width: 100%;
+}
+
+.loadingContainer,
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 240px;
+  min-width: 240px;
+}
+
+.profilePicContainer {
+  width: 120px;
+  height: 120px;
+  @extend %regular-shadow;
+}
+
+.avatarIconPlaceholder {
+  font-size: 1.5rem;
+  font-weight: text.$real-head-demibold;
+  text-align: center;
+}
+
+.profileBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+}
+
+.profileInfoRow {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.profileLink {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.12rem;
+    text-decoration-color: black;
+  }
+}
+
+.displayName {
+  font-size: text.rem(32px);
+  font-weight: text.$real-head-demibold;
+  text-align: center;
+  letter-spacing: 0px;
+}
+
+.description {
+  font-size: text.rem(12px);
+  text-align: start;
+  word-wrap: break-word;
+
+  max-width: 480px;
+  width: 100%;
+  max-height: 90px;
+  padding: 0 8px;
+  overflow-y: hidden;
+}
+
+.overflowButton {
+  background: white;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

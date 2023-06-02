@@ -1,0 +1,108 @@
+@use "theme/src/colors";
+@use "theme/src/screens";
+@use "theme/src/text";
+
+$_padding-horz: 37px;
+$_padding-vert: 27px;
+
+.integrationrow {
+  width: 100%;
+  max-width: 850px;
+  display: grid;
+  grid-template-columns: $_padding-horz auto $_padding-horz 1fr $_padding-horz auto $_padding-horz;
+  grid-template-rows: $_padding-vert auto auto minmax($_padding-vert, auto);
+  grid-template-areas:
+    ". . . . . . ."
+    ". icon . title . button ."
+    ". icon . subtitle . button ."
+    "alert alert alert alert alert alert alert";
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.integrationrow__image {
+  max-width: 32px;
+  max-height: 32px;
+  grid-area: icon;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 25%;
+  padding: 5px;
+}
+
+.integrationrow__title {
+  grid-area: title;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.integrationrow__team-info {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  font-size: 0.6em;
+  margin-left: 8px;
+  padding: 4px 8px;
+}
+
+.integrationrow__team-info--editable {
+  position: relative;
+  cursor: pointer;
+
+  &:hover::after {
+    content: "edit";
+    @include text.material-icons;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fffb;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+    color: #444;
+  }
+}
+
+.integrationrow__subtitle {
+  grid-area: subtitle;
+}
+
+.integrationrow__alert {
+  grid-area: alert;
+  margin-top: $_padding-vert;
+  border-top: 1px solid lighten($color: colors.$blue, $amount: 25);
+  color: colors.$blue;
+  background-color: lighten($color: colors.$blue, $amount: 35);
+  text-align: center;
+  padding: 6px;
+
+  button {
+    all: inherit;
+    cursor: pointer;
+    font-weight: text.$real-head-demibold;
+  }
+}
+
+@media (max-width: screens.$xs) {
+  .integrationrow {
+    grid-template-columns: $_padding-horz auto $_padding-horz 1fr $_padding-horz;
+    grid-template-rows: $_padding-vert auto auto $_padding-vert auto minmax($_padding-vert, auto);
+    grid-template-areas:
+      ". . . . ."
+      ". icon . title ."
+      ". icon . subtitle ."
+      ". . . . ."
+      ". button button button ."
+      "alert alert alert alert alert";
+  }
+}
+
+.integrationrow__loader,
+.integrationrow__solanaButtonLoader,
+.integrationrow__solanaButton {
+  grid-area: button;
+}
+
+.integrationrow__solanaButton {
+  background: white;
+}

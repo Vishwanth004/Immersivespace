@@ -1,0 +1,64 @@
+@use "sass:math";
+
+// Font family
+$real-text: "ff-real-text-pro", sans-serif;
+$real-head: "ff-real-headline-pro", sans-serif;
+
+// Font weight
+$real-text-regular: 300;
+$real-head-medium: 500;
+$real-head-demibold: 600;
+$real-head-black: 900;
+
+// Make any component into a material icon container
+@mixin material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: "liga";
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Truncate text with ellipses (1 line)
+// If you want to truncate with more than one line, use `clamp-no-of-lines`
+@mixin truncate {
+  @include clamp-no-of-lines(1);
+}
+
+// Truncate text to a single line with ellipses, with text wrapping
+@mixin truncateSingleLineWrap {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Clamp text to N number of lines before overflowing (with ellipses)
+@mixin clamp-no-of-lines($numLines) {
+  @if $numLines > 1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $numLines;
+  } @else {
+    white-space: nowrap;
+  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Converts a pixel value to rem.
+// @param {Number} $px - the value to convert to rem. Can have px unit or be unitless.
+// @return {Number} the rem value.
+@function rem($pxValue) {
+  // Adding 0px converts the unit to px if it wasn't already.
+  @return math.div($pxValue + 0px, 16px) * 1rem;
+}

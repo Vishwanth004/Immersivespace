@@ -1,0 +1,20 @@
+@use "sass:math";
+
+$triangle-width: 12px;
+$triangle-height: 12px;
+
+.triangleconnector {
+  align-self: center;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 $triangle-width $triangle-height $triangle-width;
+  border-color: transparent transparent white transparent;
+  position: absolute;
+  // Add one to the top offset, so that it overlaps the modal by one pixel and there's no border line
+  top: -1 * math.floor($triangle-height) + 1;
+}
+
+:export {
+  triangleWidth: $triangle-width;
+}

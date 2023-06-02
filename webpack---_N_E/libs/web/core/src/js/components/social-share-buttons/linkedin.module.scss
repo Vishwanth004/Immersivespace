@@ -1,0 +1,10 @@
+@use "./variables.module.scss" as common-styles;
+@use "theme/src/text";
+
+.label {
+  @include common-styles.social-share-button-label;
+}
+
+a.icon {
+  @include common-styles.social-share-icon-button;
+}

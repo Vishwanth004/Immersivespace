@@ -1,0 +1,179 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+@use "theme/src/layout";
+@use "theme/src/shadows";
+@use "theme/src/util";
+@use "web/core/src/js/components/keyboard-key/mixins.module" as keyboard-key-mixins;
+@use "../variables.module";
+
+.fadeOut {
+  transition: visibility variables.$loading-screen-animation-duration,
+    opacity variables.$loading-screen-animation-duration;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: colors.$dark-gray;
+  z-index: layout.$modal-z-index - 1;
+  // Needed as the image scales larger than 1, so prevent scroll
+  // when overflowing
+  overflow: hidden;
+
+  &.exiting {
+    // Allow clicking through the loading screen while fading out.
+    pointer-events: none;
+    @extend .fadeOut;
+  }
+}
+
+.splashImage {
+  filter: blur(10px);
+  // CSS filter:blur creates a white glow by default, scale by 1.1 to avoid this.
+  // https://stackoverflow.com/questions/28870932/how-to-remove-white-border-from-blur-background-image
+  // backdrop-filter is not supported by Firefox.
+  transform: scale(1.1);
+}
+
+.innerContainer {
+  transition: opacity variables.$loading-screen-animation-duration;
+
+  @media not all and (min-width: variables.$breakpoint-width) {
+    &.showingModal {
+      opacity: 0;
+      transition: none;
+    }
+  }
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  overflow: visible;
+  height: 100%;
+  width: 600px;
+  max-width: 100%;
+  gap: 16px;
+
+  @media (min-width: variables.$breakpoint-width) {
+    max-width: calc(50vw - 80px);
+  }
+}
+
+.spaceInfoContainer {
+  display: flex;
+  flex-direction: column;
+  color: colors.$white;
+  gap: 4px;
+}
+
+.spaceNameContainer {
+  position: relative;
+  width: fit-content;
+}
+
+.loveButtonContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  translate: 100% 0;
+
+  &:before {
+    // Add space to force the container to have the same height as the space name
+    content: "\00a0";
+    @extend .spaceName;
+  }
+
+  .loveButtonIcon {
+    font-size: text.rem(52px);
+    width: text.rem(52px);
+    height: text.rem(52px);
+  }
+}
+
+.spaceName {
+  font-size: text.rem(64px);
+  font-family: text.$real-head;
+  font-weight: text.$real-head-black;
+  line-height: 108%;
+  letter-spacing: 0.01em;
+  @include text.clamp-no-of-lines(5);
+}
+
+.spaceDescription {
+  font-size: text.rem(14px);
+  font-family: text.$real-head;
+  font-weight: text.$real-head-demibold;
+  line-height: 130%;
+  letter-spacing: 0.01em;
+
+  .spaceDescriptionShowMore {
+    font-weight: text.$real-head-black;
+  }
+}
+
+.communityGuidelinesContainer {
+  font-size: text.rem(12px);
+  font-family: text.$real-text;
+  font-weight: text.$real-text-regular;
+  color: rgba(colors.$white, 0.5);
+  vertical-align: middle;
+  white-space: pre;
+
+  a {
+    font: inherit;
+    color: colors.$white;
+    text-decoration: underline;
+  }
+
+  span {
+    vertical-align: middle;
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+
+  .userAvatar {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+}
+
+.creatorInfoContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.creatorAvatar {
+  width: 32px;
+  height: 32px;
+}
+
+.creatorName {
+  font-size: text.rem(18px);
+  font-family: text.$real-head;
+  font-weight: text.$real-head-demibold;
+  letter-spacing: 0.01em;
+  @include text.clamp-no-of-lines(1);
+}
+
+.wasdKeys {
+  $gap: text.rem(6px);
+  @include keyboard-key-mixins.wasdKeys(text.rem(32px), auto, $gap, $gap);
+}
+
+:export {
+  animationFullDuration: util.strip-unit(variables.$loading-screen-animation-duration);
+}

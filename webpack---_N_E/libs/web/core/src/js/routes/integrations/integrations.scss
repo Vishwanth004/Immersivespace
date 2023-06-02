@@ -1,0 +1,56 @@
+@use "theme/src/screens";
+@use "theme/src/text";
+
+.integrations {
+  overflow-y: scroll;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+
+.integrations__top {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+}
+
+.integrations__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & > * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: screens.$xs) {
+  .integrations__content {
+    margin-top: 56px;
+  }
+}
+
+.integrations__message {
+  margin-top: 16px;
+  font-size: text.rem(16px);
+  font-weight: text.$real-text-regular;
+  text-align: center;
+}
+
+// these are a classes used by solana-wallet-adapter
+// used here to unset globally applied styles
+.wallet-adapter-modal-title {
+  all: unset;
+}
+
+.wallet-adapter-modal-list-more {
+  all: unset;
+}
+
+.wallet-adapter-button {
+  text-transform: unset;
+}

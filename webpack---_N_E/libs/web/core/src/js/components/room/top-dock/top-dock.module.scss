@@ -1,0 +1,43 @@
+@use "theme/src/colors";
+@use "theme/src/screens";
+@use "theme/src/text";
+@use "theme/src/layout";
+@use "web/core/src/js/routes/rooms/variables.module.scss" as Room;
+@use "./variables.module.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+
+  // set z-index to be one less than regular modals
+  z-index: layout.$modal-z-index - 1;
+
+  @media (max-width: screens.$mobile) {
+    top: Room.$padding-vertical;
+  }
+}
+
+.roomName {
+  max-width: 320px;
+  height: 25px;
+}
+
+.roomName,
+.roomNameInput {
+  color: colors.$white;
+}
+
+.roomNameText {
+  $font-size: 18px;
+  $vert-shadow: 6px;
+  font-family: text.$real-head;
+  text-align: center;
+  font-size: text.rem($font-size);
+  font-weight: text.$real-head-black;
+  text-shadow: 0px 3px $vert-shadow rgba(0, 0, 0, 0.5);
+  line-height: text.rem($font-size + $vert-shadow * 2);
+  max-width: 310px;
+}

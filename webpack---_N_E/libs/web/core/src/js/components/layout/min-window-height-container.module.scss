@@ -1,0 +1,21 @@
+@use "theme/src/screens";
+
+.minHeight {
+  min-height: 100vh;
+  /* Avoid Chrome to see Safari hack https://github.com/postcss/postcss-100vh-fix */
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available; /* Fix Safari 100vh bug on the mobile viewport */
+    @media (min-width: screens.$mobile) {
+      min-height: 100vh;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.centerContents {
+  justify-content: center;
+  align-items: center;
+}

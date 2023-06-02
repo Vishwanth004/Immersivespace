@@ -1,0 +1,11 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+
+.container {
+  display: grid;
+  padding: 32px 40px;
+  background-color: colors.$white;
+  border-radius: 16px;
+  width: 800px;
+  min-height: 600px;
+}

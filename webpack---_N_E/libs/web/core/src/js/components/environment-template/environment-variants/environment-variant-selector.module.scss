@@ -1,0 +1,27 @@
+@use "theme/src/colors";
+@use "theme/src/screens";
+@use "theme/src/text";
+
+.container {
+  margin-top: 2px;
+  margin-right: 10px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonContainer {
+  margin: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid colors.$white;
+
+  &.selected {
+    outline: 2px solid colors.$black;
+  }
+
+  &.hoverEnabled:hover {
+    transform: scale(1.1);
+  }
+}

@@ -1,0 +1,39 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+
+.modal {
+  composes: modal from "@spatialsys/web/core/css/components/modal.module.scss";
+  border-radius: 24px;
+  background-color: white;
+  box-shadow: 0px 32px 48px rgba(0, 0, 0, 0.25);
+}
+
+.messageBody {
+  min-width: 450px;
+  padding: 50px 50px;
+}
+
+.header {
+  font-size: text.rem(30px);
+  font-weight: text.$real-head-demibold;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-size: text.rem(18px);
+  margin-bottom: 10px;
+}
+
+.subText {
+  font-size: text.rem(14px);
+  color: colors.$dark-gray;
+  margin-top: 30px;
+}
+
+a.link {
+  color: colors.$blue;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

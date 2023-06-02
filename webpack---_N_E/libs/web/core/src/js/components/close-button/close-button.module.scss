@@ -1,0 +1,17 @@
+@use "theme/src/shadows";
+
+$button-dimensions: 32px;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  width: $button-dimensions;
+  height: $button-dimensions;
+  right: calc($button-dimensions / -2);
+  top: calc($button-dimensions / -2);
+  position: absolute;
+  border-radius: 50%;
+  @extend %small-shadow;
+}

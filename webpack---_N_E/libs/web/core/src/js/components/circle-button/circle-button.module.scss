@@ -1,0 +1,109 @@
+@use "sass:math";
+@use "theme/src/buttons";
+@use "theme/src/colors";
+@use "theme/src/text";
+@use "theme/src/tooltips";
+@use "./variables.module";
+
+$btn-radius: math.div(variables.$size, 2);
+
+@mixin buttonColors($textColor, $backgroundColor, $shadowColor) {
+  color: $textColor;
+  background-color: $backgroundColor;
+  box-shadow: 0px 16px 32px 0px $shadowColor;
+}
+
+.container {
+  display: flex;
+  transition: 500ms all var(--emo-out);
+  transform: scale(1);
+  z-index: 1000;
+
+  &:hover,
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+.btn {
+  @extend %tooltip-host;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $btn-radius;
+  width: variables.$size;
+  height: variables.$size;
+  user-select: none;
+  -webkit-user-select: none;
+
+  background: #000;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-tap-highlight-color: transparent;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.btnBlue {
+  @include buttonColors(colors.$white, colors.$blue-light, colors.$blue--shadow);
+}
+
+.btnBlack {
+  @include buttonColors(colors.$white, colors.$black, colors.$black--shadow);
+}
+
+.btnWhite {
+  @include buttonColors(colors.$black, colors.$white, colors.$black--shadow);
+}
+
+.btnRed {
+  @include buttonColors(colors.$black, colors.$red, colors.$black--shadow);
+}
+
+.btnOutline {
+  background-color: colors.$room-button-default-background;
+  border: none;
+  box-shadow: none;
+  color: colors.$room-button-default-foreground;
+
+  &:hover {
+    box-shadow: 0px 16px 48px 0px colors.$black--shadow;
+  }
+}
+
+.btnDisabled {
+  box-shadow: 0px 0px 24px 0px colors.$black--shadow;
+  -webkit-text-fill-color: colors.$light-gray;
+  color: colors.$light-gray;
+  border: buttons.$btn-border;
+  background: buttons.$btn-fill-disabled;
+}
+
+.btnCircleSmall {
+  width: variables.$size;
+  height: variables.$size;
+}
+
+.btnCircleLarge {
+  width: 96px;
+  height: 96px;
+}
+
+@media (max-width: 40em) {
+  .btnCircleLarge {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+// global needed to beat out the specificity
+:global(.tooltip-container).tooltip {
+  background-color: colors.$white;
+  color: colors.$black;
+  box-shadow: 0px 16px 32px 0px colors.$black--shadow;
+  padding: 3px 10px 4px;
+  border-radius: tooltips.$roundedRectBorderRadii;
+  --tooltipBorder: transparent;
+}

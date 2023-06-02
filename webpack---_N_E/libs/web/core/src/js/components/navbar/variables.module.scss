@@ -1,0 +1,22 @@
+$mobile-height: 62px;
+$height: 72px;
+$base-z-index: 2;
+$menu-z-index: $base-z-index - 1;
+$backdrop-z-index: $base-z-index - 2;
+$container-x-padding: 32px;
+
+$cta-btn-width: 180px;
+$avatar-size: 40px;
+$top-right-gap: 12px;
+$top-right-gap-bigger: 24px;
+$modal-width: 360px;
+$modal-padding: 16px; // needed in calculating triangle offset
+$modal-offset: 44px; // from design file
+
+:export {
+  height: $height;
+  ctaBtnWidth: $cta-btn-width;
+  modalWidth: $modal-width;
+  modalPadding: $modal-padding;
+  modalOffset: $modal-offset;
+}

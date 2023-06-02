@@ -1,0 +1,38 @@
+@use "theme/src/buttons";
+@use "theme/src/text";
+
+.content {
+  min-width: unset;
+}
+
+.innerContents {
+  display: grid;
+  gap: 4px;
+  white-space: nowrap;
+
+  button {
+    // Override the global menu button width defined in libs/web/core/src/js/components/menu/menu.scss
+    width: 100% !important;
+  }
+}
+
+.toggleButton {
+  text-transform: none;
+  font-size: text.rem(16px);
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  @include buttons.btn-scale($scale-amount-hover: scale(1.1), $transition-time: 250ms);
+
+  &.open {
+    .expandMoreIcon {
+      rotate: -180deg;
+    }
+  }
+
+  .expandMoreIcon {
+    transition: rotate 250ms;
+  }
+}

@@ -1,0 +1,21 @@
+@use "theme/src/util";
+
+$outer-padding-x: 40px;
+
+@mixin fullWidth {
+  margin-left: -1 * $outer-padding-x;
+  margin-right: -1 * $outer-padding-x;
+}
+
+@mixin scrollBarOutsidePadding {
+  @include fullWidth;
+
+  $scrollbar-width: 12px;
+  padding-left: $outer-padding-x - $scrollbar-width;
+  padding-right: $outer-padding-x - $scrollbar-width;
+
+  // Reserve space for the scrollbar on both sides of the container.
+  scrollbar-gutter: stable both-edges;
+
+  @include util.scrollbars($width: $scrollbar-width);
+}

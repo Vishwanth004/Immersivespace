@@ -1,0 +1,18 @@
+@use "theme/src/text";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nftCurrencyIcon {
+  margin-right: 10px;
+  height: 14px;
+  width: auto;
+}
+
+.priceValue {
+  font-size: text.rem(16px);
+}

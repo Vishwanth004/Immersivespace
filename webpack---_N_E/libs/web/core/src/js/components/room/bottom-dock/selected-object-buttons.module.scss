@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 16px;
+}
+
+.icon {
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 1px;
+}

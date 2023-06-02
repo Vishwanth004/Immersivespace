@@ -1,0 +1,26 @@
+@use "theme/src/text";
+
+.container {
+  display: grid;
+  grid-template-rows: 1fr 48px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  // Bottom padding
+  &::after {
+    content: "";
+    display: block;
+    height: 32px;
+  }
+}
+
+.socialShareButtonsContainer {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-self: flex-end;
+  gap: 16px;
+  width: 100%;
+  margin-top: 16px;
+}

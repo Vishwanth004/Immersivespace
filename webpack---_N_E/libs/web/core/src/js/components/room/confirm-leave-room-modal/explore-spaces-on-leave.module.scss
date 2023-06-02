@@ -1,0 +1,80 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+@use "web/core/src/js/routes/rooms/variables.module.scss" as RoomVariables;
+@use "theme/src/util";
+
+$padding-x: 32px;
+$padding-y: 24px;
+$space-item-width: 280px;
+
+.modal {
+  composes: modal from "@spatialsys/web/core/css/components/modal.module.scss";
+  top: RoomVariables.$padding-vertical;
+  left: RoomVariables.$padding-horizontal;
+  right: RoomVariables.$padding-horizontal;
+  transform: none;
+  box-shadow: 0px 32px 64px colors.$transparent-gray;
+  border-radius: 16px;
+}
+
+// Fixed size container with opacity 0
+.heightSizingContainer {
+  width: $space-item-width;
+  margin: $padding-y $padding-x;
+  opacity: 0;
+}
+
+// Absolutely positioned that's tall and overflows the main modal
+.spacesGridWrapper {
+  padding: $padding-y $padding-x;
+  position: absolute;
+  top: 0;
+  height: min(80vh, 1200px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  overflow: auto;
+  gap: 16px;
+  @include util.hide-scrollbar;
+}
+
+.spacesGrid {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: $space-item-width;
+  grid-template-rows: min-content;
+  gap: 20px;
+
+  &::after {
+    content: "";
+    width: 12px;
+    height: 100%;
+  }
+}
+
+.scrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: colors.$white;
+  top: 140px;
+  transform: translateY(-50%);
+
+  &.scrollButtonLeft {
+    left: $padding-x;
+  }
+  &.scrollButtonRight {
+    right: $padding-x;
+    transform: rotateY(180deg) translateY(-50%);
+  }
+
+  &:hover {
+    background-color: colors.$black;
+    color: colors.$white;
+  }
+}

@@ -1,0 +1,10 @@
+@use "theme/src/colors";
+@use "theme/src/layout";
+
+.container {
+  background: colors.$white;
+  width: 90vw;
+  height: 90vh;
+  max-width: layout.$max-container-width;
+  border-radius: 12px;
+}

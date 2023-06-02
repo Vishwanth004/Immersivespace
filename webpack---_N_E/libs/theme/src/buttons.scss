@@ -1,0 +1,57 @@
+@use "./colors";
+@use "./tooltips";
+
+$btn-hover-scale: scale(1.2);
+$btn-active-scale: scale(1.15);
+
+$btn-size: 56px;
+$btn-fill: rgba(255, 255, 255, 0.425);
+$btn-fill-disabled: rgba(100, 100, 100, 0.6);
+
+$btn-border: 2px solid colors.$transparent-gray;
+$btn-border-white: 2px solid colors.$transparent-white;
+$btn-border-hover: 2px solid colors.$black;
+
+%btn-scale-behavior {
+  transition: 500ms all var(--emo-out);
+  transform: scale(1);
+
+  &:hover {
+    transform: $btn-hover-scale;
+  }
+
+  &:active {
+    transform: $btn-active-scale;
+  }
+}
+
+// need mixins for media query behavior
+@mixin btn-circle-mixin() {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 56px;
+  height: 56px;
+}
+
+@mixin btn-scale(
+  $scale-amount-default: 1,
+  $scale-amount-hover: $btn-hover-scale,
+  $scale-amount-active: $btn-active-scale,
+  $transition-time: 500ms,
+  $transition-property: transform,
+  $transition-timing-function: var(--emo-out),
+  $transition-delay: 0s
+) {
+  transition: $transition-time $transition-property $transition-timing-function;
+  transform: scale($scale-amount-default);
+  transition-delay: $transition-delay;
+
+  &:hover {
+    transform: $scale-amount-hover;
+  }
+
+  &:active {
+    transform: $scale-amount-active;
+  }
+}

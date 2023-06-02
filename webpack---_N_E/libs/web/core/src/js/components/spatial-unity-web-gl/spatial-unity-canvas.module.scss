@@ -1,0 +1,45 @@
+@use "./variables.module.scss";
+
+// !important needed because generated Unity framework JS updates canvas cursor style directly.
+.grabbingCursor {
+  cursor: grabbing !important;
+}
+
+.moveCursor {
+  cursor: move !important;
+}
+
+.grabCursor {
+  cursor: grab !important;
+}
+
+.pointerCursor {
+  cursor: pointer !important;
+}
+
+.zoomCursor {
+  cursor: zoom-in !important;
+}
+
+.unityContainer {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: variables.$canvas-z-index;
+}
+
+.opacityZero {
+  // Use opacity: 0 instead of display: none or visibility: hidden.
+  // This allows us to focus on the canvas, and prevents the canvas from being unfocused when it's set to display: none
+  opacity: 0;
+}
+
+// Explicitly set display none, so that the canvas is never focused when on a page outside of the space.
+.displayNone {
+  display: none;
+}

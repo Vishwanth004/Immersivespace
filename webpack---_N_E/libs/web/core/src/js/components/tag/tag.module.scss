@@ -1,0 +1,19 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+
+.tag {
+  padding: 4px 8px;
+  background-color: colors.$transparent-gray;
+  border-radius: 4px;
+  font-weight: text.$real-head-medium;
+  font-family: text.$real-head;
+  font-size: text.rem(14px);
+}
+
+.clickable {
+  transition: all 200ms;
+  &:hover {
+    background-color: colors.$black;
+    color: colors.$white;
+  }
+}

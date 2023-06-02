@@ -1,0 +1,35 @@
+@use "theme/src/text";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  cursor: default;
+  padding: 3px;
+  border-radius: 4px;
+
+  &.button {
+    cursor: pointer;
+    text-transform: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.innerWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  max-width: 100%;
+}
+
+.title {
+  @include text.clamp-no-of-lines(1);
+  min-width: 50px;
+  // Preserve any trailing whitespace
+  white-space: pre;
+}

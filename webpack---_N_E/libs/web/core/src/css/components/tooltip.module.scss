@@ -1,0 +1,124 @@
+@use "theme/src/colors";
+// styling for react-popper-tooltips to use custom colours and effects
+
+.container {
+  background-color: colors.$blue-light;
+  border-radius: 10px;
+  border: 1px solid colors.$blue-light;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s;
+  z-index: 9999;
+
+  text-align: center;
+  padding: 10px 20px;
+
+  button {
+    position: absolute;
+    right: 5px;
+    color: white;
+    top: 0px;
+  }
+}
+
+.container[data-popper-interactive="false"] {
+  pointer-events: none;
+}
+
+.arrow {
+  height: 1rem;
+  position: absolute;
+  width: 1rem;
+  pointer-events: none;
+}
+
+.arrow::before {
+  border-style: solid;
+  content: "";
+  display: block;
+  height: 0;
+  margin: auto;
+  width: 0;
+}
+
+.arrow::after {
+  border-style: solid;
+  content: "";
+  display: block;
+  height: 0;
+  margin: auto;
+  position: absolute;
+  width: 0;
+}
+
+.container[data-popper-placement*="bottom"] .arrow {
+  left: 0;
+  margin-top: -0.4rem;
+  top: 0;
+}
+
+.container[data-popper-placement*="bottom"] .arrow::before {
+  border-color: transparent transparent colors.$blue-light transparent;
+  border-width: 0 0.5rem 0.4rem 0.5rem;
+  position: absolute;
+  top: -1px;
+}
+
+.container[data-popper-placement*="bottom"] .arrow::after {
+  border-color: transparent transparent colors.$blue-light transparent;
+  border-width: 0 0.5rem 0.4rem 0.5rem;
+}
+
+.container[data-popper-placement*="top"] .arrow {
+  bottom: 0;
+  left: 0;
+  margin-bottom: -1rem;
+}
+
+.container[data-popper-placement*="top"] .arrow::before {
+  border-color: colors.$blue-light transparent transparent transparent;
+  border-width: 0.4rem 0.5rem 0 0.5rem;
+  position: absolute;
+  top: 1px;
+}
+
+.container[data-popper-placement*="top"] .arrow::after {
+  border-color: colors.$blue-light transparent transparent transparent;
+  border-width: 0.4rem 0.5rem 0 0.5rem;
+}
+
+.container[data-popper-placement*="right"] .arrow {
+  left: 0;
+  margin-left: -0.7rem;
+}
+
+.container[data-popper-placement*="right"] .arrow::before {
+  border-color: transparent colors.$blue-light transparent transparent;
+  border-width: 0.5rem 0.4rem 0.5rem 0;
+}
+
+.container[data-popper-placement*="right"] .arrow::after {
+  border-color: transparent colors.$blue-light transparent transparent;
+  border-width: 0.5rem 0.4rem 0.5rem 0;
+  left: 6px;
+  top: 0;
+}
+
+.container[data-popper-placement*="left"] .arrow {
+  margin-right: -0.7rem;
+  right: 0;
+}
+
+.container[data-popper-placement*="left"] .arrow::before {
+  border-color: transparent transparent transparent colors.$blue-light;
+  border-width: 0.5rem 0 0.5rem 0.4em;
+}
+
+.container[data-popper-placement*="left"] .arrow::after {
+  border-color: transparent transparent transparent colors.$blue-light;
+  border-width: 0.5rem 0 0.5rem 0.4em;
+  left: 3px;
+  top: 0;
+}

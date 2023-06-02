@@ -1,0 +1,85 @@
+@use "theme/src/colors";
+@use "theme/src/text";
+@use "theme/src/util";
+
+@use "./variables.module.scss";
+@use "../variables.module.scss" as chatVariables;
+@use "web/core/src/js/components/circle-button/variables.module" as circleButtonVariables;
+
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  align-self: flex-end;
+
+  background-color: colors.$transparent-gray;
+  border: transparent solid 2px;
+  border-radius: 32px;
+  transition: border-color 0.3s var(--emo-out);
+  padding: 0px 16px;
+  height: circleButtonVariables.$size;
+  width: 100%;
+
+  &:focus,
+  &:focus-within {
+    border-color: colors.$white;
+  }
+
+  :global {
+    .rta.str-chat__textarea.str-chat__message-textarea-react-host {
+      display: flex;
+    }
+  }
+
+  textarea {
+    background-color: inherit;
+    border: none;
+    color: colors.$white;
+    font-family: text.$real-text;
+    font-size: text.rem(chatVariables.$font-size);
+    flex: 1;
+
+    resize: none;
+    outline: none;
+    @include util.hide-scrollbar;
+
+    &::placeholder {
+      color: colors.$lighter-gray2;
+    }
+  }
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 14px;
+}
+
+.actionButton {
+  color: colors.$white;
+  transition: opacity 0.3s var(--emo-out);
+  position: relative;
+  display: flex;
+
+  .tooltip {
+    margin-bottom: 8px;
+  }
+}
+
+.emojiPicker {
+  position: absolute;
+  right: -2px;
+  bottom: variables.$input-absolute-bottom-offset;
+  z-index: 1;
+}
+
+.redDot {
+  width: 9px;
+  height: 9px;
+  background: colors.$red;
+  border-radius: 100%;
+  position: absolute;
+  top: -2px;
+  right: 0px;
+}

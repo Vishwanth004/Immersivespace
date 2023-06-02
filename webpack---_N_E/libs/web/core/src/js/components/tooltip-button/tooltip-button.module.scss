@@ -1,0 +1,5 @@
+@use "theme/src/shadows";
+
+.container:hover {
+  @include shadows.shadow-black(0.6);
+}

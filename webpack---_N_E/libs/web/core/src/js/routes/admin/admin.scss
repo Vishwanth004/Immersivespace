@@ -1,0 +1,160 @@
+@use "theme/src/text";
+
+.admin__org_name {
+  flex: 1;
+  font-weight: text.$real-head-demibold;
+}
+
+.admin__more_menu {
+  margin-left: 10px;
+}
+
+.admin__buttons {
+  display: flex;
+  height: 56px;
+}
+
+.admin__panel_scroll_container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.admin__people_table_sort_icon {
+  display: none;
+  opacity: 0.5;
+}
+
+.admin__people_table_menu_overflow {
+  height: 300px;
+}
+
+.sortable:hover ~ .admin__people_table_sort_icon {
+  display: inline-block;
+}
+
+.admin__remove_account_modal {
+  width: 470px;
+}
+
+.admin__remove_account_modal_action {
+  width: fit-content;
+  margin: 40px auto 0 auto;
+}
+
+.invite-member-modal {
+  width: 500px;
+}
+
+.invite-member-modal-body {
+  text-align: center;
+}
+
+.invite-member-modal-title {
+  font-size: 24px;
+  font-weight: text.$real-head-demibold;
+  margin-bottom: 10px;
+}
+
+.invite-member-modal-warning {
+  font-size: 14px;
+  color: red;
+}
+
+.invite-member-modal-email {
+  margin-top: 40px;
+  font-family: text.$real-text;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  display: block;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.invite-member-modal-action {
+  width: fit-content;
+  margin: 40px auto 0 auto;
+}
+
+.invite-member-modal-action button {
+  text-transform: capitalize;
+  min-width: 225px;
+}
+
+.invite-member-modal-action svg {
+  float: left;
+  margin-top: 3px;
+}
+
+.change-org-name-modal {
+  width: 500px;
+}
+
+.change-org-name-modal-body {
+  text-align: center;
+}
+
+.change-org-name-modal-title {
+  font-size: 24px;
+  font-weight: text.$real-head-demibold;
+  margin-bottom: 50px;
+}
+
+.change-org-name-modal-input {
+  font-family: text.$real-text;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  display: block;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.change-org-name-modal-action {
+  width: fit-content;
+  margin: 40px auto 0 auto;
+}
+
+.change-org-name-modal-action button {
+  text-transform: capitalize;
+  min-width: 225px;
+}
+
+/* Small */
+@media (max-width: 40em) {
+  .invite-member-modal {
+    width: 90%;
+  }
+
+  .invite-member-modal-body {
+    padding: 20px 20px;
+  }
+
+  .invite-member-modal-title {
+    margin-bottom: 25px;
+  }
+
+  .invite-member-modal-action {
+    margin-top: 20px;
+  }
+
+  .change-org-name-modal {
+    width: 90%;
+  }
+
+  .change-org-name-modal-body {
+    padding: 20px 20px;
+  }
+
+  .change-org-name-modal-title {
+    margin-bottom: 25px;
+  }
+
+  .change-org-name-modal-action {
+    margin-top: 20px;
+  }
+}

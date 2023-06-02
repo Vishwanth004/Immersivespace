@@ -1,0 +1,1 @@
+module.exports = __webpack_public_path__ + "static/photon/libopus.3d14bd5db6a492c3bc941b6f39b4b983.wasm.br";

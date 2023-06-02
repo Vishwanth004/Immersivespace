@@ -1,0 +1,71 @@
+@use "web/core/src/js/routes/rooms/variables.module.scss" as Room;
+@use "theme/src/colors";
+@use "theme/src/shadows";
+
+.roomVideoLightbox {
+  z-index: 1;
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+  padding: 0 Room.$padding-horizontal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  // Unclear why this is needed
+  min-height: 0;
+
+  video {
+    border-radius: 30px;
+    overflow: none;
+    @extend %shadow--black;
+    width: 100%;
+    height: 100%;
+
+    // Remove border from around videos when they are clicked on
+    &:focus {
+      border: 0;
+      outline: none;
+    }
+  }
+}
+
+.mirror {
+  video {
+    transform: scaleX(-1) !important;
+  }
+}
+
+.connected {
+  visibility: visible;
+}
+
+.connecting {
+  background-color: rgba(colors.$dark-gray, 0.5);
+  backdrop-filter: grayscale(60%);
+  visibility: visible;
+  video {
+    visibility: hidden;
+  }
+}
+
+.reconnectingLoader {
+  // Center
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: -16px;
+  right: -12px;
+}

@@ -1,0 +1,9 @@
+.gradientBackground {
+  background: linear-gradient(320.95deg, rgba(0, 0, 0, 0.32) 26.25%, rgba(80, 80, 80, 0.103125) 105.61%),
+    radial-gradient(50% 50% at 50% 50%, rgba(13, 13, 13, 0.03) 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.highlightBackground:hover {
+  background: linear-gradient(320.95deg, rgba(0, 0, 0, 0.12) 26.25%, rgba(80, 80, 80, 0.103125) 105.61%),
+    radial-gradient(50% 50% at 50% 50%, rgba(13, 13, 13, 0.03) 0%, rgba(75, 75, 75, 0.2) 100%);
+}

@@ -1,0 +1,28 @@
+@use "theme/src/util";
+
+$padding: 32px;
+$padding-vertical: 32px;
+$padding-horizontal: 32px;
+$padding-vertical-mobile: 16px;
+$padding-horizontal-mobile: 20px;
+
+$z-index-bottom-section: 1;
+$z-index-chat: 2;
+
+$top-bar-grid-area-leave-button: leaveButton;
+$top-bar-grid-area-top-dock: topDock;
+$top-bar-grid-area-top-right-container: topRightContainer;
+
+$bottom-bar-grid-area-bottom-left: bottomLeft;
+$bottom-bar-grid-area-main-dock: mainDock;
+$bottom-bar-grid-area-settings: settings;
+$bottom-bar-grid-area-bottom-right: bottomRight;
+
+$avatar-customization-panel-width: 400px;
+
+$transition-hidden-duration: 200ms;
+
+:export {
+  avatarCustomizationPanelWidth: util.strip-unit($avatar-customization-panel-width);
+  transitionHiddenDuration: util.strip-unit($transition-hidden-duration);
+}

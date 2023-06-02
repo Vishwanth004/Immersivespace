@@ -1,0 +1,48 @@
+var _path, _circle, _path2;
+
+var _excluded = ["title", "titleId"];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+import * as React from "react";
+import { forwardRef } from "react";
+
+var SvgAutoRotateCamera = function SvgAutoRotateCamera(_ref, ref) {
+  var title = _ref.title,
+      titleId = _ref.titleId,
+      props = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    ref: ref,
+    "aria-labelledby": titleId
+  }, props), title ? /*#__PURE__*/React.createElement("title", {
+    id: titleId
+  }, title) : null, _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M17 13.9844V6.01562H7.01562V9H5V4.98438C5 4.46875 5.46875 4 5.98438 4H17.9844C18.5469 4 19.0156 4.46875 19.0156 4.98438V8.5L23 4.51562V15.4844L19.0156 11.5V15.0156C19.0156 15.5312 18.5469 16 17.9844 16H13V13.9844H17Z",
+    fill: "currentColor"
+  })), _circle || (_circle = /*#__PURE__*/React.createElement("circle", {
+    cx: 6,
+    cy: 16,
+    r: 5,
+    stroke: "currentColor",
+    strokeWidth: 1.5
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    d: "M8 18L6.64865 14H5.35135L4 18H5.07027L5.26486 17.3764H6.73514L6.92973 18H8ZM6.48649 16.5449H5.51351L6 14.9663L6.48649 16.5449Z",
+    fill: "currentColor"
+  })));
+};
+
+var ForwardRef = /*#__PURE__*/forwardRef(SvgAutoRotateCamera);
+export { ForwardRef as ReactComponent };
+export default "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNyAxMy45ODQ0VjYuMDE1NjJINy4wMTU2MlY5SDVWNC45ODQzOEM1IDQuNDY4NzUgNS40Njg3NSA0IDUuOTg0MzggNEgxNy45ODQ0QzE4LjU0NjkgNCAxOS4wMTU2IDQuNDY4NzUgMTkuMDE1NiA0Ljk4NDM4VjguNUwyMyA0LjUxNTYyVjE1LjQ4NDRMMTkuMDE1NiAxMS41VjE1LjAxNTZDMTkuMDE1NiAxNS41MzEyIDE4LjU0NjkgMTYgMTcuOTg0NCAxNkgxM1YxMy45ODQ0SDE3WiIgZmlsbD0iY3VycmVudENvbG9yIi8+CjxjaXJjbGUgY3g9IjYiIGN5PSIxNiIgcj0iNSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMS41Ii8+CjxwYXRoIGQ9Ik04IDE4TDYuNjQ4NjUgMTRINS4zNTEzNUw0IDE4SDUuMDcwMjdMNS4yNjQ4NiAxNy4zNzY0SDYuNzM1MTRMNi45Mjk3MyAxOEg4Wk02LjQ4NjQ5IDE2LjU0NDlINS41MTM1MUw2IDE0Ljk2NjNMNi40ODY0OSAxNi41NDQ5WiIgZmlsbD0iY3VycmVudENvbG9yIi8+Cjwvc3ZnPgo=";
