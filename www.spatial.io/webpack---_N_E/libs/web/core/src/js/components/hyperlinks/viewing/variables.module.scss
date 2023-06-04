@@ -1,7 +1,0 @@
-@use "theme/src/util";
-
-$nftInfoBoxWidth: 325px;
-
-:export {
-  nftInfoBoxWidth: util.strip-unit($nftInfoBoxWidth);
-}

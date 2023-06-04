@@ -1,9 +1,0 @@
-@use "../variables.module";
-
-.tooltipBadge {
-  transition: opacity variables.$transition-duration;
-}
-
-.socialSignals {
-  transition: opacity variables.$transition-duration;
-}

@@ -1,8 +1,0 @@
-@use "theme/src/screens";
-
-$canvas-z-index: 0;
-$loading-screen-animation-duration: 1500ms;
-
-// If the screen is less than or equal to this width,
-// we show the authless modal at the center hide the text while modal is open.
-$breakpoint-width: screens.$md;
